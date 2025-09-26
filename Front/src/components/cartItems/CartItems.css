@@ -1,0 +1,258 @@
+.cartitems {
+  margin: 70px 140px;
+}
+.cartitems hr {
+  height: 3px;
+  background: #e2e2e2;
+  margin-bottom: 3%;
+  border: 0;
+}
+.cartitems-format-main {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 75px;
+  color: #454545;
+  font-size: 18px;
+  font-weight: 600;
+}
+.cartitems-format {
+  font-size: 17px;
+  font-weight: 500;
+}
+.carticon-product-icon {
+  height: 62px;
+}
+.cartitems-remove-icon {
+  width: 15px;
+  margin:  0px 40px;
+  cursor: pointer;
+}
+.cartitems-quantity {
+  width: 64px;
+  height: 50px;
+  border: 2px solid #ebebeb;
+  background: #fff;
+}
+
+.cartitems-down {
+  display: flex;
+  margin: 100px 0px;
+}
+.cartitems-total {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-right: 200px;
+}
+.cartitems-total-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0px;
+}
+.cartitems-total button {
+  width: 262px;
+  height: 58px;
+  outline: none;
+  border: none;
+  background: #ff5a5a;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.cartitems-promocode {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+}
+.cartitems-promocode p {
+  color: #555;
+}
+.cartitems-promobox {
+  width: 504px;
+  margin-top: 15px;
+  padding-left: 20px;
+  height: 58px;
+  background: #eaeaea;
+}
+.cartitems-promobox input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  width: 330px;
+  height: 50px;
+}
+.cartitems-promobox button {
+  width: 170px;
+  height: 58px;
+  font-size: 16px;
+  background: #000;
+  color: white;
+  cursor: pointer;
+}
+.cartitems-list {
+  margin-top: -10px;
+  max-height: 400px; /* Adjust height as needed */
+  overflow-y: auto;
+  padding-right: 10px; /* Avoid content hidden behind scrollbar */
+  border-bottom: 1px solid #e2e2e2; /* Optional: line below items */
+}
+
+/* Optional: Custom scrollbar styling for WebKit browsers */
+.cartitems-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cartitems-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.cartitems-list::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.cartitems-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.track-container {
+  padding: 40px 20px;
+  background: linear-gradient(to bottom right, #f5f7fa, #e2e8f0);
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
+.track-container h2 {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 40px;
+}
+
+.order-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 25px 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+  position: relative;
+  border-left: 6px solid #4a90e2;
+}
+
+.order-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.order-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  font-size: 16px;
+  color: #333;
+}
+
+.order-info p b {
+  color: #555;
+}
+
+.order-status {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.status-delivered {
+  background-color: #d1f7d6;
+  color: #2e7d32;
+}
+
+.status-placed {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.status-cancelled {
+  background-color: #fbe9e7;
+  color: #d32f2f;
+}
+
+.cancel-section {
+  margin-top: 20px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cancel-section textarea {
+  width: 100%;
+  height: 80px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  resize: none;
+  border-radius: 8px;
+  font-size: 15px;
+  margin-bottom: 12px;
+  font-family: inherit;
+}
+
+.cancel-btn {
+  background-color: #e74c3c;
+  border: none;
+  padding: 10px 18px;
+  font-size: 15px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #c0392b;
+}
+
+.cancel-reason {
+  background-color: #ffe5e5;
+  padding: 14px;
+  border-left: 4px solid #dc3545;
+  margin-top: 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #9b1c1c;
+}
+
+@media (max-width: 768px) {
+  .order-info {
+    grid-template-columns: 1fr;
+  }
+
+  .track-container {
+    padding: 20px 12px;
+  }
+
+  .order-card {
+    padding: 20px;
+  }
+}
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

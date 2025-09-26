@@ -1,0 +1,155 @@
+/* Main Container */
+.track-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.track-container h2 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 8px;
+  color: #2c3e50;
+}
+
+.track-subtitle {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: #777;
+}
+
+/* Scrollable Order Container */
+.order-scroll-container {
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 5px;
+  scrollbar-width: thin;
+}
+
+/* Order Card */
+.order-card {
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+  border-left: 5px solid #007bff;
+  padding: 20px;
+  border-radius: 8px;
+  transition: box-shadow 0.3s;
+}
+
+.order-card:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.order-info p {
+  margin: 5px 0;
+  font-size: 15px;
+}
+
+.status-placed {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.status-cancelled {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.cancel-reason {
+  background: #ffe5e5;
+  padding: 10px;
+  border-left: 4px solid #dc3545;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 10px;
+  color: #a00;
+}
+
+/* Cancel Section */
+.cancel-section {
+  margin-top: 10px;
+}
+
+.cancel-section textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  resize: none;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+.btn-cancel-toggle {
+  margin-top: 15px;
+  background-color: #f39c12;
+  color: white;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-cancel-toggle:hover {
+  background-color: #e0890b;
+}
+
+.btn-confirm-cancel {
+  background-color: #c0392b;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-confirm-cancel:hover {
+  background-color: #a93226;
+}
+
+/* Delivery Steps */
+.delivery-steps {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.step {
+  padding: 6px 12px;
+  background: #e0e0e0;
+  border-radius: 50px;
+  color: #333;
+}
+
+.step.active {
+  background: #3498db;
+  color: white;
+  font-weight: bold;
+}
+
+/* Empty and Loading States */
+.no-orders,
+.track-container.loading {
+  text-align: center;
+  color: #555;
+  padding: 40px;
+  font-size: 16px;
+}
+
+/* Scrollbar for Firefox + Chrome */
+.order-scroll-container::-webkit-scrollbar {
+  width: 6px;
+}
+.order-scroll-container::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 3px;
+}

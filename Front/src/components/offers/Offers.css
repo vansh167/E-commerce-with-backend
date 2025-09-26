@@ -1,0 +1,137 @@
+/* Offers Section Padding */
+.offers {
+  padding: 2rem;
+}
+
+/* Main Banner Container */
+#sm-banner {
+  display: flex;
+  flex-wrap: wrap; /* Wrap banners on smaller screens */
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+/* Shared Banner Box Styles */
+.banner-box,
+.banner-box2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  width: 580px;
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+}
+
+/* First Banner Image */
+.banner-box {
+  background-image: url(/image/b10.jpg);
+}
+
+/* Second Banner Image */
+.banner-box2 {
+  background-image: url(/image/b17.jpg);
+}
+
+/* Headings */
+.banner-box h4,
+.banner-box2 h4 {
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+.banner-box h2,
+.banner-box2 h2 {
+  margin-bottom: 20px;
+}
+
+/* Span Text */
+.banner-box span,
+.banner-box2 span {
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.banner-box button,
+.banner-box2 button,
+#sm-banner button {
+  width: 100px;
+  height: 30px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+#sm-banner button:hover {
+  background-color: white;
+  color: #333;
+}
+
+.banner-box button:hover,
+.banner-box2 button:hover {
+  background-color: white;
+  color: #333;
+}
+
+/* 🔁 Responsive Design */
+@media (max-width: 768px) {
+  .banner-box,
+  .banner-box2 {
+    width: 100%;
+    height: 40vh;
+    padding: 15px;
+  }
+
+  #sm-banner {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .banner-box h2,
+  .banner-box2 h2 {
+    font-size: 20px;
+  }
+
+  .banner-box h4,
+  .banner-box2 h4 {
+    font-size: 16px;
+  }
+
+  .banner-box span,
+  .banner-box2 span {
+    font-size: 14px;
+  }
+
+  .banner-box button,
+  .banner-box2 button {
+    width: 90px;
+    height: 28px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-box,
+  .banner-box2 {
+    height: 35vh;
+  }
+
+  .banner-box h2,
+  .banner-box2 h2 {
+    font-size: 18px;
+  }
+
+  .banner-box span,
+  .banner-box2 span {
+    font-size: 13px;
+  }
+}

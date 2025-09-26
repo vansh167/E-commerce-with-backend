@@ -1,0 +1,347 @@
+/* Reset and Base */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 70px;
+}
+
+/* Logo */
+.nav-logo-img {
+  width: 120px;
+  height: auto;
+  cursor: pointer;
+}
+
+/* Navigation Menu */
+.nav-list-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  position: relative;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.2s;
+}
+
+.nav-menu a:hover {
+  color: #117efa;
+}
+
+/* Active underline */
+.nav-menu hr {
+  border: none;
+  height: 2px;
+  background-color: #117efa;
+  margin-top: 4px;
+}
+
+/* Right Section (Login + Cart) */
+.nav-login-cart {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-login-cart button {
+  padding: 6px 16px;
+  background-color: #117efa;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.nav-login-cart button:hover {
+  background-color: #0d6ede;
+}
+
+.nav-login-cart img {
+  height: 25px;
+  cursor: pointer;
+}
+
+.nav-cart-count {
+  background-color: red;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+  margin-left: 0px;
+  margin-top: -12px;
+  position: relative;
+  
+}
+.align-items-center{
+  margin-right: 20px;
+}
+/* --------------------------- */
+/* Responsive Mobile / Tablet */
+/* --------------------------- */
+@media (max-width: 1024px) {
+  .nav-menu {
+    gap: 1rem;
+  }
+
+  .nav-menu li {
+    font-size: 16px;
+  }
+
+  .nav-login-cart button {
+    padding: 4px 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 0.5rem 1rem;
+    height: auto;
+  }
+
+  .nav-list-container {
+    order: 3;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 0.5rem;
+  }
+
+  .nav-login-cart {
+    order: 2;
+    gap: 0.5rem;
+    margin-left: auto;
+  }
+
+  .nav-cart-count {
+    margin-left: -10px;
+    margin-top: -10px;
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-logo-img {
+    width: 90px;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-menu li {
+    font-size: 14px;
+  }
+
+  .nav-login-cart button {
+    padding: 4px 10px;
+    font-size: 12px;
+   
+  }
+
+  .nav-login-cart img {
+    height: 20px;
+  }
+}
+.btn-primary{
+  background-color: #E3E6F3;
+  color: black;
+  font-weight: 600;
+  margin-left: -10px;
+  border-color: #333;
+}
+.navbar-user {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 15px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid #ddd;
+  transition: 0.3s ease;
+}
+
+.navbar-user:hover {
+  border-color: #007bff; /* Hover effect */
+}
+.dropdown-menu .dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.dropdown-menu .dropdown-item span {
+  font-size: 16px;
+}
+/* Avatar Image */
+.navbar-user {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  cursor: pointer;
+}
+
+/* Custom Dropdown Styling */
+.custom-dropdown {
+  min-width: 200px;
+  border-radius: 8px;
+  padding: 8px 0;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.custom-dropdown .dropdown-item {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.custom-dropdown .dropdown-item:hover {
+  background-color: #f6f6f6;
+  color: #000;
+}
+
+.custom-dropdown i {
+  font-size: 16px;
+}
+/* Nav link base styles */
+.nav-link {
+  position: relative;
+  color: #333;
+  text-decoration: none;
+  padding-bottom: 6px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect */
+.nav-link:hover {
+  color: #117efa;
+}
+
+/* Active nav link styles */
+.nav-link-active {
+  color: #117efa;
+  font-weight: 700;
+}
+
+/* Underline effect for active link */
+.nav-link-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background-color: #117efa;
+  border-radius: 4px;
+  animation: slideIn 0.3s forwards;
+}
+
+/* Remove underline for non-active links */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background-color: transparent;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Slide in animation for active underline */
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.badge {
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+.navbar-user {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.navbar-user:hover {
+  border-color: #117efa;
+}
+.nav-link {
+  position: relative;
+  color: #333;
+  text-decoration: none;
+  padding-bottom: 4px; /* space for underline */
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #117efa;
+}
+
+/* Active link underline */
+.nav-link-active {
+  color: #000000;
+  font-weight: 600;
+}
+
+.nav-link-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px; /* small underline thickness */
+  width: 100%;
+  background-color: #7CB9E8;
+  border-radius: 2px;
+}

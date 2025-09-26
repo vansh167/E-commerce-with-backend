@@ -11,6 +11,7 @@ import {
   FaCcMastercard,
   FaCcPaypal,
 } from "react-icons/fa";
+
 import "./Payment.css";
 import { useShopContext } from "../../context/ShopContext";
 
@@ -31,31 +32,38 @@ const PaymentPage = () => {
   const [couponCode, setCouponCode] = useState("");
   const [discountPercent, setDiscountPercent] = useState(0);
 
-  const { clearCart } = useShopContext()
+  const { clearCart } = useShopContext();
 
-  // Calculate delivery charges based on selected option
-  const deliveryCharges =
-    deliveryOption === "today" ? 100 : deliveryOption === "fast" ? 50 : 0;
-
-  // Calculate final amounts considering discount and delivery
-  const finalAmount = (totalAmount || 0) + deliveryCharges;
-  const discountAmount = (finalAmount * discountPercent) / 100;
-  const discountedAmount = finalAmount - discountAmount;
-
-  // Toast helpers
-  const notifySuccess = (msg) =>
-    toast.success(msg, { position: "top-right", autoClose: 3000, theme: "colored" });
-  const notifyError = (msg) =>
-    toast.error(msg, { position: "top-right", autoClose: 3000, theme: "colored" });
-
-  // Coupon codes and discounts map
   const coupons = {
     SAVE10: 10,
     SAVE20: 20,
     WELCOME5: 5,
   };
 
-  // Apply coupon code handler
+  const deliveryCharges = {
+    today: 100,
+    fast: 50,
+    free: 0,
+  }[deliveryOption];
+
+  const finalAmount = (totalAmount || 0) + deliveryCharges;
+  const discountAmount = (finalAmount * discountPercent) / 100;
+  const discountedAmount = finalAmount - discountAmount;
+
+  const notifySuccess = (msg) =>
+    toast.success(msg, {
+      position: "top-right",
+      autoClose: 3000,
+      theme: "colored",
+    });
+
+  const notifyError = (msg) =>
+    toast.error(msg, {
+      position: "top-right",
+      autoClose: 3000,
+      theme: "colored",
+    });
+
   const handleApplyCoupon = () => {
     const code = couponCode.trim().toUpperCase();
     if (coupons[code]) {
@@ -67,12 +75,21 @@ const PaymentPage = () => {
     }
   };
 
-  // Handle card input changes
   const handleCardChange = (e) => {
     setCardDetails((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  // Confirm order with validation
+  const updateTotalIncome = (amount) => {
+    const prevIncome = Number(localStorage.getItem("totalIncome")) || 0;
+    localStorage.setItem("totalIncome", (prevIncome + Number(amount)).toFixed(2));
+  };
+
+  const saveOrderHistory = (order) => {
+    const history = JSON.parse(localStorage.getItem("orderHistory")) || [];
+    history.push(order);
+    localStorage.setItem("orderHistory", JSON.stringify(history));
+  };
+
   const handleConfirmOrder = () => {
     if (!paymentMethod) {
       notifyError("⚠️ Please select a payment method.");
@@ -92,16 +109,25 @@ const PaymentPage = () => {
       }
     }
 
+    // Build order object
+    const order = {
+      id: Date.now(),
+      address,
+      paymentMethod,
+      deliveryOption,
+      amountPaid: discountedAmount.toFixed(2),
+      date: new Date().toLocaleString(),
+    };
+
+    updateTotalIncome(discountedAmount);
+    saveOrderHistory(order);
+
     notifySuccess(`✅ Order Placed! Total Paid: ₹${discountedAmount.toFixed(2)}`);
 
-    // Clear cart items from localStorage
     localStorage.removeItem("cart-items");
-    clearCart()
+    clearCart();
 
-    // Redirect home after showing toast
-    setTimeout(() => {
-      navigate("/");
-    }, 3000);
+    setTimeout(() => navigate("/"), 3000);
   };
 
   return (
@@ -125,7 +151,6 @@ const PaymentPage = () => {
             <p>No address found</p>
           )}
 
-          {/* Security & Trust */}
           <div className="payment-bottom">
             <div className="security-item">
               <FaLock size={30} color="#4caf50" />
@@ -231,7 +256,6 @@ const PaymentPage = () => {
             );
           })}
 
-          {/* Coupon Section */}
           <div className="coupon-box">
             <h3>Have a Coupon?</h3>
             <input
@@ -250,7 +274,6 @@ const PaymentPage = () => {
             )}
           </div>
 
-          {/* Final Summary */}
           <div className="final-summary">
             <p>Cart Total: ₹{totalAmount?.toFixed(2) || "0.00"}</p>
             <p>Delivery Charges: ₹{deliveryCharges.toFixed(2)}</p>

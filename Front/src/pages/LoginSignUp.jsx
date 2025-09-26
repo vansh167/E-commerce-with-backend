@@ -43,27 +43,39 @@ const LoginSignUp = () => {
       alert(responseData.errors);
     }
   };
+const signup = async () => {
+  let responseData;
+  await fetch('http://localhost:4000/signup', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/form-data',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
+  })
+    .then((res) => res.json())
+    .then((data) => (responseData = data));
 
-  const signup = async () => {
-    let responseData;
-    await fetch('http://localhost:4000/signup', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/form-data',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((res) => res.json())
-      .then((data) => (responseData = data));
+  if (responseData.success) {
+    // Get existing users from localStorage or create an empty array
+    const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+    
+    // Add the new user data (you can store only username/email or other info)
+    existingUsers.push({
+      username: formData.username,
+      email: formData.email,
+      // don't store password here for security reasons!
+    });
 
-    if (responseData.success) {
-      localStorage.setItem('auth-token', responseData.token);
-      window.location.replace('/');
-    } else {
-      alert(responseData.errors);
-    }
-  };
+    // Save updated users list back to localStorage
+    localStorage.setItem('users', JSON.stringify(existingUsers));
+
+    localStorage.setItem('auth-token', responseData.token);
+    window.location.replace('/');
+  } else {
+    alert(responseData.errors);
+  }
+};
 
   return (
     <div className="loginsignup">
